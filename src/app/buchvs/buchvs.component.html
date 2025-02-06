@@ -1,1 +1,59 @@
-<p>buchvs works!</p>
+<div class="parent">
+  <div class="div1">
+    <div class="books-categories">
+      <div class="bookshelf-title" (click)="showShelf()">My Bookshelf 📚</div>
+      <div *ngIf="showBookshelf">
+        <div class="book-category">Read</div>
+        <div class="book-category">Currently Reading</div>
+        <div class="book-category">To Be Read</div>
+      </div>
+    </div>
+  </div>
+  <div class="div2">
+    <div *ngIf="!showBookshelf" class="bookshelf">
+      <div class="shelves">
+        <div class="shelf-column">
+          <h4>✅ Read</h4>
+          <div *ngFor="let book of books.read">{{ book }}</div>
+        </div>
+        <div class="shelf-column">
+          <h4>📖 Currently Reading</h4>
+          <div *ngFor="let book of books.currentlyReading">{{ book }}</div>
+        </div>
+        <div class="shelf-column">
+          <h4>📅 To Be Read</h4>
+          <div *ngFor="let book of books.toBeRead">{{ book }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="div3">
+    <div class="add-book">
+      <button class="add-book-button" (click)="addBook()">Add Book</button>
+    </div>
+  </div>
+  <div class="div4">
+    <div class="add-book-container">
+      <h2>Add a New Book</h2>
+      <form (submit)="addBook()">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" [(ngModel)]="newBook.title" name="title" required />
+        </div>
+        <div class="form-group">
+          <label for="author">Author:</label>
+          <input type="text" id="author" [(ngModel)]="newBook.author" name="author" required />
+        </div>
+        <div class="form-group">
+          <label for="year">Year of Publication:</label>
+          <input type="number" id="year" [(ngModel)]="newBook.year" name="year" required />
+        </div>
+        <div class="form-group">
+          <label for="pages">Pages:</label>
+          <input type="number" id="pages" [(ngModel)]="newBook.pages" name="pages" required />
+        </div>
+        <button type="submit">Add Book</button>
+      </form>
+    </div>
+  </div>
+</div>
