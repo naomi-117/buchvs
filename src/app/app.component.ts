@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { BuchvsComponent } from "./buchvs/buchvs.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [BuchvsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
